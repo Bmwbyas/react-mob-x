@@ -1,9 +1,12 @@
 import {makeAutoObservable} from "mobx";
+import {RootStore} from "../store";
 
-class Counter {
+export class Counter {
     count=0
     timer=60
-    constructor() {
+    rootStore: RootStore;
+    constructor(rootStore:any) {
+        this.rootStore = rootStore;
         makeAutoObservable(this);
 
     }
@@ -19,4 +22,3 @@ class Counter {
         return `Counter+timer=${this.count + this.timer}`
     }
 }
-export default new Counter()

@@ -1,9 +1,14 @@
 import React from 'react';
-import counter from "../../store/counter";
+
 import {observer} from "mobx-react-lite";
+import {useStore} from "../../store/connect";
+
 
 
 export const Counter = observer(() => {
+
+    console.log('counter')
+    const {counter}=useStore()
     return (
         <div style={{display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center"}}>
             {counter.total}

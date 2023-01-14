@@ -1,8 +1,12 @@
 import React, {ChangeEvent, useEffect} from 'react';
 import {observer} from "mobx-react-lite";
-import todo from "../../store/todo";
+import {useStore} from "../../store/connect";
+
 
 export const Todos = observer(() => {
+    console.log('todo')
+    const {todo}=useStore()
+
     const [value, setValue] = React.useState('')
     console.log(value)
     useEffect(()=>{
@@ -19,13 +23,14 @@ export const Todos = observer(() => {
 
     return (
         <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <input value={value} onChange={onChangeAddTodo}/>
-            <button onClick={addTodoHandler}> add todos</button>
+
+            <input style={{width:300}} value={value} onChange={onChangeAddTodo}/>
+            <button style={{width:200}} onClick={addTodoHandler}> add todos</button>
             {todo.todos.map(t => {
                 const onBlurInput = () => {
                     todo.updateTitle(t.id, value)
                 }
-                return <div style={{textAlign: "center", margin: 5}} key={t.id}>
+                return <div style={{textAlign: "center", margin: 10}} key={t.id}>
 
                     <span style={{padding: 6, backgroundColor: "aqua"}}>{t.id}</span>
                     <span style={{padding: 6, backgroundColor: "aqua"}}> {t.title.text}</span>
