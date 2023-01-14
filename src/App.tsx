@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Counter} from "./features/counter/Counter";
+import {Todos} from "./features/todos/Todos";
 
 function App() {
-  return (
-    <div className="App">
-        
-    </div>
-  );
+    return (
+        <div>
+            <Counter/>
+            <Todos/>
+        </div>
+    );
 }
 
 export default App;
