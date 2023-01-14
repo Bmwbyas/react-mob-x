@@ -6,6 +6,7 @@ import {observer} from "mobx-react-lite";
 export const Counter = observer(() => {
     return (
         <div style={{display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center"}}>
+            {counter.total}
             <div>
                 <button onClick={()=>counter.increment()}>inc</button>
                 <button onClick={()=>counter.decrimente()}>dec</button>
